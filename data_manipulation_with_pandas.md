@@ -2,6 +2,7 @@
 where Numpy provides multi dimensional array objects = easy data manipulation
 and matplotlib = for data visualization
 
+```
 df.head() - to quickly explore contents
 df.info() - names, data types, missing vals or not of columns
 df.describe() - summary statistics - where count is number of non missing values
@@ -9,6 +10,7 @@ df.values - gives all values in a 2d numpy array
 df.columns - gives column names
 df.index - row numbers, row names
 df.shape - returns number of rows and columns of the dataframe
+```
 
 Zen of Python:
 there should only be one obvious solution.
@@ -16,41 +18,46 @@ there should only be one obvious solution.
 Sorting and subsetting:
 
 sort by one col:
-df.sort_values("col_name", ascending=False); - default - ascending
+```df.sort_values("col_name", ascending=False); - default - ascending```
 
 sort by multiple vars: by passing list of vars
-df.sort_values(["col1","col2"], ascending = [True, False]);
+```df.sort_values(["col1","col2"], ascending = [True, False]);```
 
 subset to see just one col: 
-df["col_name"]
+```df["col_name"]```
 
 to subset multiple cols, pass a list of vars:
 //outer [] to subset the dataframe
 //inner [] to send a list of vars
 
-df[['breed','height']]
+```df[['breed','height']]```
 
 (or)
 
+```
 list_to_subset=['col1','col2']
 df[list_to_subset]
+```
 
 conditional subsetting:
-df[df['height']>50]
+```df[df['height']>50]```
 
 text based subsetting:
-df[df['breed']=='Labrador']
+```df[df['breed']=='Labrador']```
 
 date based subsetting: yyyy/mm/dd
-df[df['dob'] > "2015-10-10"]
+```df[df['dob'] > "2015-10-10"]```
 
 based on multiple conditions
 
-is_lab = df['breed'] == 'lab'
+```is_lab = df['breed'] == 'lab'
 is_brown= df['color'] == 'brown'
 
 df[is_lab && is_brown]
+```
 
 subsetting using .isin():
+```
 is_black_or_brown = df['color'].isin(['Black','Brown'])
 df[is_black_or_brown]
+```

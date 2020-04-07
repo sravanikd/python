@@ -61,3 +61,39 @@ subsetting using .isin():
 is_black_or_brown = df['color'].isin(['Black','Brown'])
 df[is_black_or_brown]
 ```
+New columns from existing columns:
+```
+df['new_col'] = df['old_col']/100
+
+df['bmi'] = df['weight']/df['height'] ** 2
+```
+
+Summary Statistics:
+```
+df['col'].mean()
+df['col'].min()
+df['col'].max()
+```
+.agg() method:
+```
+def pct30(col):
+  return col.quantile(0.3)
+
+df['weight_kg'].agg(pct30)
+
+```
+
+agg for multiple summaries:
+```
+def pct40(col):
+  return col.quantile(0.4)
+  
+df['weight_kg'].agg([pct30,pct40])
+```
+
+cumulative sum:
+```
+df['col'].cumsum()
+.cummin()
+.cumprod()
+```
